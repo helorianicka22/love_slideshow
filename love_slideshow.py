@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # ---------------- PASSWORD LOCK ----------------
-PASSWORD = "Onyet0708"   # 🔒 change if you want
+PASSWORD = "mylove123"   # 🔒 change if you want
 
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
@@ -30,7 +30,7 @@ if not st.session_state.authenticated:
 
 # ---------------- SLIDES (7 SLIDES) ----------------
 slides = [
-    {"text": "💖 Haliuuu my baby onyett sayanggg\n\nI made this special utkmu,\nsbb ku bosan terkurung hehe","symbol": "❤️", "color": "#ff4d6d"},
+    {"text": "💖 Haliuuu my baby onyett sayang", "symbol": "❤️", "color": "#ff4d6d"},
     {"text": "You are the first thought in my morning and the last in my night.", "symbol": "💞", "color": "#ff85a1"},
     {"text": "No matter how far life takes us, my heart always knows where to return.", "symbol": "🤍", "color": "#f1f1f1"},
     {"text": "Holding your hand feels like holding the whole world.", "symbol": "🫶", "color": "#ff6f91"},
@@ -123,5 +123,3 @@ st.markdown(
     "<p style='text-align:center; color:grey;'>Made with ❤️</p>",
     unsafe_allow_html=True
 )
-
-
