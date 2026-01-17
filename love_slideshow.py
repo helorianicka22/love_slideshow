@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # ---------------- PASSWORD LOCK ----------------
-PASSWORD = "mylove123"   # 🔒 change if you want
+PASSWORD = "mylove123"
 
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
@@ -28,66 +28,73 @@ if not st.session_state.authenticated:
             st.error("Wrong password 😢")
     st.stop()
 
-# ---------------- SLIDES (YOUR EXACT SENTENCES) ----------------
+# ---------------- SLIDES WITH SHAPES ----------------
 slides = [
     {
-        "text": """Haliuuu my baby Onyett Sayanggg 🤍  
-Ku buat coding ini special utkmu  
-Sbb ku bosan terkurung dlm bilik heheh  
+        "text": """Haliuuu my baby Onyett Sayanggg 🤍
+Ku buat coding ini special utkmu
+Sbb ku bosan terkurung dlm bilik heheh
 
 Here we goooo""",
         "symbol": "💖",
-        "color": "#ff4d6d"
+        "shape": "rounded",
+        "color": "#ffd6e0"
     },
     {
-        "text": """A Gentle Reminder  
+        "text": """A Gentle Reminder
 
-Onyett sayang are appreciated & loved by me  
+Onyett sayang are appreciated & loved by me
 more than you will ever know.""",
         "symbol": "💞",
-        "color": "#ff85a1"
+        "shape": "circle",
+        "color": "#ffe5ec"
     },
     {
-        "text": """No matter what nyettt nyettt,  
-Distance, time, pain or silence —  
+        "text": """No matter what nyettt nyettt,
+Distance, time, pain or silence —
 my heart always finds you.""",
         "symbol": "🤍",
+        "shape": "speech",
         "color": "#f1f1f1"
     },
     {
-        "text": """Onyett sayang is very admirable.  
-Onyett yg paling rajin, bertanggungjawab,  
-pintar, baik  
+        "text": """Onyett sayang is very admirable.
+Onyett yg paling rajin, bertanggungjawab,
+pintar, baik
 
 Mmmuuuaaahhh""",
         "symbol": "🫶",
-        "color": "#ff6f91"
+        "shape": "soft-heart",
+        "color": "#ffccd5"
     },
     {
-        "text": """Di dalam kesusahan onyett,  
-kalau ku dekat ku akan datang & bantu.  
-Kalau ku jauh, ku akan bantu dari segi  
+        "text": """Di dalam kesusahan onyett,
+kalau ku dekat ku akan datang & bantu.
+Kalau ku jauh, ku akan bantu dari segi
 moral support & DOA""",
         "symbol": "💗",
-        "color": "#ff9aa2"
+        "shape": "diamond",
+        "color": "#ffe0b2"
     },
     {
-        "text": """Kalau org lain asyik tinggalkanmu,  
-Ku di sini akan selalu dgnmu  
+        "text": """Kalau org lain asyik tinggalkanmu,
+Ku di sini akan selalu dgnmu
 (Dari hati terdalam)""",
         "symbol": "🤝❤️",
-        "color": "#ffb703"
+        "shape": "note",
+        "color": "#e0f7fa"
     },
     {
-        "text": """Always onyett sayanggg.  
+        "text": """Always onyett sayanggg.
 
-If life lets me choose again,  
-I will still choose you.  
-Till death do us part.  
+If life lets me choose again,
+I will still choose you.
+Till death do us part.
 
-Semangat dalam STUDY WEEK, onyettt kuuu!!!""",
+Semangat dalam STUDY WEEK, sayang!!!""",
         "symbol": "💓",
-        "color": "#e63946"
+        "shape": "final",
+        "color": "#ffb3c1"
     }
 ]
 
@@ -101,22 +108,29 @@ last_slide_index = len(slides) - 1
 st.markdown(
     """
     <style>
-    .slide-box {
+    .box {
+        padding: 50px;
+        margin: auto;
+        max-width: 600px;
         text-align: center;
-        padding: 60px 40px;
-        animation: fadeIn 0.6s ease-in;
-        white-space: pre-line;
-    }
-
-    .slide-text {
-        font-size: 24px;
+        font-size: 23px;
         line-height: 1.6;
-        margin-bottom: 20px;
+        white-space: pre-line;
+        animation: fadeIn 0.6s ease-in;
     }
 
-    .love-symbol {
+    .rounded { border-radius: 25px; }
+    .circle { border-radius: 50%; padding: 80px; }
+    .speech { border-radius: 20px; position: relative; }
+    .soft-heart { border-radius: 40px 40px 60px 60px; }
+    .diamond { transform: rotate(45deg); }
+    .diamond span { display: inline-block; transform: rotate(-45deg); }
+    .note { border-radius: 10px; box-shadow: 5px 5px 0 #ccc; }
+    .final { border-radius: 30px; border: 3px dashed #ff4d6d; }
+
+    .love {
         font-size: 42px;
-        margin-top: 10px;
+        margin-top: 20px;
     }
 
     .the-end {
@@ -124,6 +138,7 @@ st.markdown(
         font-size: 32px;
         font-weight: bold;
         color: #ff4d6d;
+        text-align: center;
     }
 
     @keyframes fadeIn {
@@ -138,13 +153,16 @@ st.markdown(
 # ---------------- DISPLAY ----------------
 slide = slides[st.session_state.slide]
 
+if slide["shape"] == "diamond":
+    content = f"<span>{slide['text']}</span>"
+else:
+    content = slide["text"]
+
 st.markdown(
     f"""
-    <div class="slide-box">
-        <div class="slide-text">{slide['text']}</div>
-        <div class="love-symbol" style="color:{slide['color']};">
-            {slide['symbol']}
-        </div>
+    <div class="box {slide['shape']}" style="background:{slide['color']};">
+        {content}
+        <div class="love">{slide['symbol']}</div>
     </div>
     """,
     unsafe_allow_html=True
@@ -152,10 +170,7 @@ st.markdown(
 
 # ---------------- THE END + FIREWORKS ----------------
 if st.session_state.slide == last_slide_index:
-    st.markdown(
-        "<div class='the-end' style='text-align:center;'>THE END 💖</div>",
-        unsafe_allow_html=True
-    )
+    st.markdown("<div class='the-end'>THE END 💖</div>", unsafe_allow_html=True)
     st.balloons()
 
 # ---------------- NAVIGATION ----------------
@@ -175,6 +190,6 @@ with col3:
 
 # ---------------- FOOTER ----------------
 st.markdown(
-    "<p style='text-align:center; color:grey;'>Made with ❤️, sincerely</p>",
+    "<p style='text-align:center; color:grey;'>Made with ❤️, just for you</p>",
     unsafe_allow_html=True
 )
