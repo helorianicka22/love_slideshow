@@ -39,7 +39,7 @@ slides = [
     {
         "title": "💖 Haliuuu my baby onyettt sayang",
         "text": "This is something special, made only for you.",
-        "image": "https://drive.google.com/uc?id=1cz2tGTenAW1AiXJrPf1NnYBEUdpjPhTK"
+        "image": "https://drive.google.com/uc?export=view&id=1cz2tGTenAW1AiXJrPf1NnYBEUdpjPhTK"
     },
     {
         "title": "🌸 A Gentle Reminder",
@@ -125,4 +125,5 @@ st.markdown(
     "<p style='text-align:center; color:grey;'>Made with ❤️</p>",
     unsafe_allow_html=True
 )
+
 
