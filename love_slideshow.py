@@ -30,8 +30,7 @@ if not st.session_state.authenticated:
 
 # ---------------- SLIDES (7 SLIDES) ----------------
 slides = [
-    {"text": "💖 Haliuuu my baby onyett sayanggg\nKu buat coding ni special utkmu\nSbb ku bosan shekali terkurung", "symbol": "❤️", "color": "#ff4d6d"},
-    {"text": "You are the first thought in my morning and the last in my night.", "symbol": "💞", "color": "#ff85a1"},
+    {"text": "💖 Haliuuu my baby onyett sayanggg\nKu buat coding ni special utkmu\n\nSbb ku bosan shekali terkurung", "symbol": "❤️", "color": "#ff4d6d"},   {"text": "You are the first thought in my morning and the last in my night.", "symbol": "💞", "color": "#ff85a1"},
     {"text": "No matter how far life takes us, my heart always knows where to return.", "symbol": "🤍", "color": "#f1f1f1"},
     {"text": "Holding your hand feels like holding the whole world.", "symbol": "🫶", "color": "#ff6f91"},
     {"text": "You make ordinary days feel extraordinary.", "symbol": "💗", "color": "#ff9aa2"},
@@ -123,4 +122,5 @@ st.markdown(
     "<p style='text-align:center; color:grey;'>Made with ❤️</p>",
     unsafe_allow_html=True
 )
+
 
