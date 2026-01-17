@@ -39,24 +39,20 @@ slides = [
     {
         "title": "💖 Haliuuu My Baby Onyettt Sayanggg",
         "text": "This is something special, made only for you.",
-        "image": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
     },
     {
         "title": "🌸 A Gentle Reminder utk onyettt sayang",
         "text": "During your hard time, ku shelalu akan ada untukmu, more than you will ever know.",
-        "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
     },
     {
         "title": "✨ No Matter What nyettt nyettt",
         "text": "Distance, time, pain atau silence — my heart always finds onyettt.",
         "text": "Onyettt sayang always the most admirable ones.",
         "text": "Onyettt sayang paling rajin, paling bertanggungjawab, paling pintar, paling baik.",
-        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
     },
     {
         "title": "💞 Always Onyettt & only Onyettt",
         "text": "If life lets me choose again, I will still choose onyettt sayanggg. Sihat2 shelalu yaaa~",
-        "image": "https://images.unsplash.com/photo-1526045612212-70caf35c14df"
     }
 ]
 
@@ -127,3 +123,4 @@ st.markdown(
     "<p style='text-align:center; color:grey;'>Made with ❤️</p>",
     unsafe_allow_html=True
 )
+
