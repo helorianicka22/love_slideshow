@@ -37,7 +37,7 @@ Sbb ku bosan terkurung dlm bilik heheh
 
 Here we goooo""",
         "symbol": "💖",
-        "shape": "rounded",
+        "shape": "trapezium",
         "color": "#ffd6e0"
     },
     {
@@ -193,3 +193,4 @@ st.markdown(
     "<p style='text-align:center; color:grey;'>Made with ❤️, just for you</p>",
     unsafe_allow_html=True
 )
+
