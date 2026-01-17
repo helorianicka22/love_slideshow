@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # ---------------- PASSWORD LOCK ----------------
-PASSWORD = "mylove123"
+PASSWORD = "onyettt0708"
 
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
@@ -37,7 +37,7 @@ Sbb ku bosan terkurung dlm bilik heheh
 
 Here we goooo""",
         "symbol": "💖",
-        "shape": "trapezium",
+        "shape": "rounded",
         "color": "#ffd6e0"
     },
     {
@@ -78,7 +78,7 @@ moral support & DOA""",
     },
     {
         "text": """Kalau org lain asyik tinggalkanmu,
-Ku di sini akan selalu dgnmu
+Ku di sini akan shelalu dgnmu
 (Dari hati terdalam)""",
         "symbol": "🤝❤️",
         "shape": "note",
@@ -193,5 +193,6 @@ st.markdown(
     "<p style='text-align:center; color:grey;'>Made with ❤️, just for you</p>",
     unsafe_allow_html=True
 )
+
 
 
