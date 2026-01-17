@@ -30,7 +30,7 @@ if not st.session_state.auth:
 
 # ---------------- SLIDES TEXT ----------------
 slides = [
-    "Haliuuu my baby onyett sayang 💖",
+    "💖 Haliuuu my baby onyett sayang",
     "This is something special, made only for you.",
     "No matter what happens, my heart always chooses you.",
     "Thank you for being my happiness.",
@@ -44,7 +44,6 @@ if "slide" not in st.session_state:
 st.markdown(
     """
     <style>
-    /* HEART SHAPE */
     .heart {
         width: 280px;
         height: 280px;
@@ -52,10 +51,10 @@ st.markdown(
         background-size: cover;
         background-position: center;
         position: relative;
-        margin: 40px auto;
+        margin: 40px auto 20px auto;
         transform: rotate(-45deg);
         animation: pulse 1.8s infinite;
-        box-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
+        box-shadow: 0 0 30px rgba(255, 105, 180, 0.9);
     }
 
     .heart::before,
@@ -80,51 +79,42 @@ st.markdown(
         top: 0;
     }
 
-    /* HEART PULSE */
     @keyframes pulse {
         0% { transform: rotate(-45deg) scale(1); }
-        50% { transform: rotate(-45deg) scale(1.08); }
+        50% { transform: rotate(-45deg) scale(1.06); }
         100% { transform: rotate(-45deg) scale(1); }
     }
 
-    /* TYPING TEXT */
-    .typing {
-        font-size: 26px;
+    .text-box {
         text-align: center;
+        font-size: 26px;
         margin-top: 20px;
-        animation: fadeIn 1s;
+        animation: fadeIn 0.6s ease-in;
     }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# ---------------- DISPLAY CONTENT ----------------
+# ---------------- DISPLAY ----------------
 if st.session_state.slide < len(slides):
 
-    # 💓 HEART DISPLAY
+    # ❤️ HEART
     st.markdown("<div class='heart'></div>", unsafe_allow_html=True)
 
-    # 💌 TYPING EFFECT
-    placeholder = st.empty()
-    text = slides[st.session_state.slide]
-    typed = ""
-
-    for char in text:
-        typed += char
-        placeholder.markdown(
-            f"<div class='typing'>{typed}</div>",
-            unsafe_allow_html=True
-        )
-        time.sleep(0.04)
+    # 💬 STATIC TEXT (NO MOVEMENT)
+    st.markdown(
+        f"<div class='text-box'>{slides[st.session_state.slide]}</div>",
+        unsafe_allow_html=True
+    )
 
 else:
-    # 🎆 FIREWORKS
+    # 🎆 ENDING
     st.balloons()
     st.markdown(
         """
