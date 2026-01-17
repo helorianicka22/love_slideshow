@@ -3,7 +3,7 @@ import time
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
-    page_title="For Onyett Sayang 💖",
+    page_title="For Onyettt Sayang 💖",
     page_icon="💖",
     layout="centered"
 )
@@ -73,7 +73,7 @@ kalau ku dekat ku akan datang & bantu.
 Kalau ku jauh, ku akan bantu dari segi
 moral support & DOA""",
         "symbol": "💗",
-        "shape": "diamond",
+        "shape": "circle",
         "color": "#ffe0b2"
     },
     {
@@ -170,7 +170,7 @@ st.markdown(
 
 # ---------------- THE END + FIREWORKS ----------------
 if st.session_state.slide == last_slide_index:
-    st.markdown("<div class='the-end'>THE END 💖</div>", unsafe_allow_html=True)
+    st.markdown("<div class='the-end'>LOVE YOU 💖</div>", unsafe_allow_html=True)
     st.balloons()
 
 # ---------------- NAVIGATION ----------------
@@ -193,4 +193,5 @@ st.markdown(
     "<p style='text-align:center; color:grey;'>Made with ❤️, just for you</p>",
     unsafe_allow_html=True
 )
+
 
