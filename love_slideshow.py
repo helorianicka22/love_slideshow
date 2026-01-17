@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # ---------------- PASSWORD LOCK ----------------
-PASSWORD = "mylove123"   # 🔒 change if you want
+PASSWORD = "Onyet0708"   # 🔒 change if you want
 
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
@@ -43,6 +43,8 @@ slides = [
 if "slide" not in st.session_state:
     st.session_state.slide = 0
 
+last_slide_index = len(slides) - 1
+
 # ---------------- CSS ----------------
 st.markdown(
     """
@@ -61,6 +63,13 @@ st.markdown(
     .love-symbol {
         font-size: 42px;
         margin-top: 10px;
+    }
+
+    .the-end {
+        margin-top: 40px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #ff4d6d;
     }
 
     @keyframes fadeIn {
@@ -82,23 +91,29 @@ st.markdown(
         <div class="love-symbol" style="color:{slide['color']};">
             {slide['symbol']}
         </div>
+        {"<div class='the-end'>THE END 💖</div>" if st.session_state.slide == last_slide_index else ""}
     </div>
     """,
     unsafe_allow_html=True
 )
 
+# 🎆 FIREWORKS ONLY AT LAST SLIDE
+if st.session_state.slide == last_slide_index:
+    st.balloons()
+
 # ---------------- NAVIGATION ----------------
 col1, col2, col3 = st.columns([1, 2, 1])
 
-# ⬅️ Previous (always allowed except first slide)
+# ⬅️ Previous (hide only on first slide)
 with col1:
-    if st.button("⬅️ Previous") and st.session_state.slide > 0:
-        st.session_state.slide -= 1
-        st.rerun()
+    if st.session_state.slide > 0:
+        if st.button("⬅️ Previous"):
+            st.session_state.slide -= 1
+            st.rerun()
 
-# ➡️ Next (ONLY show if NOT last slide)
+# ➡️ Next (HIDDEN on last slide)
 with col3:
-    if st.session_state.slide < len(slides) - 1:
+    if st.session_state.slide < last_slide_index:
         if st.button("Next ➡️"):
             st.session_state.slide += 1
             st.rerun()
