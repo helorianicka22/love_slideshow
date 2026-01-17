@@ -13,7 +13,7 @@ st.set_page_config(
 # -------------------------------------------------
 # PASSWORD LOCK
 # -------------------------------------------------
-PASSWORD = "Onyettt0708"   # 🔒 CHANGE THIS
+PASSWORD = "Onyet"   # 🔒 CHANGE THIS
 
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
@@ -33,27 +33,13 @@ if not st.session_state.authenticated:
     st.stop()
 
 # -------------------------------------------------
-# SLIDES CONTENT (EDIT THIS)
+# SLIDES (EDIT TEXT ONLY)
 # -------------------------------------------------
 slides = [
-    {
-        "title": "💖 Haliuuu My Baby Onyettt Sayanggg",
-        "text": "This is something special, made only for you.",
-    },
-    {
-        "title": "🌸 A Gentle Reminder utk onyettt sayang",
-        "text": "During your hard time, ku shelalu akan ada untukmu, more than you will ever know.",
-    },
-    {
-        "title": "✨ No Matter What nyettt nyettt",
-        "text": "Distance, time, pain atau silence — my heart always finds onyettt.",
-        "text": "Onyettt sayang always the most admirable ones.",
-        "text": "Onyettt sayang paling rajin, paling bertanggungjawab, paling pintar, paling baik.",
-    },
-    {
-        "title": "💞 Always Onyettt & only Onyettt",
-        "text": "If life lets me choose again, I will still choose onyettt sayanggg. Sihat2 shelalu yaaa~",
-    }
+    "💖 Hello my love.\n\nKu bosan shekali terkurung.Jadi, ku buat ini untukmu hehe.",
+    "🌸 I just want you to know that you are deeply appreciated.",
+    "✨ No matter what happens, my heart always finds its way back to you.",
+    "💞 If life gives me a thousand choices, I will still choose you.",
 ]
 
 # -------------------------------------------------
@@ -66,15 +52,14 @@ if "slide" not in st.session_state:
 # DISPLAY SLIDES OR ENDING
 # -------------------------------------------------
 if st.session_state.slide < len(slides):
-    slide = slides[st.session_state.slide]
-
     st.markdown(
         f"""
         <style>
         .slide {{
             animation: fadeIn 1.2s;
             text-align: center;
-            padding: 30px;
+            padding: 50px;
+            font-size: 26px;
         }}
 
         @keyframes fadeIn {{
@@ -84,9 +69,7 @@ if st.session_state.slide < len(slides):
         </style>
 
         <div class="slide">
-            <h1>{slide['title']}</h1>
-            <img src="{slide['image']}" width="100%" style="border-radius:20px; margin-top:15px;">
-            <p style="font-size:24px; margin-top:20px;">{slide['text']}</p>
+            {slides[st.session_state.slide]}
         </div>
         """,
         unsafe_allow_html=True
@@ -95,8 +78,8 @@ else:
     st.balloons()
     st.markdown(
         """
-        <h1 style="text-align:center;">🎆 THANK YOU FOR EVERYTHING 🎆</h1>
-        <h3 style="text-align:center;">I love you, endlessly 💖</h3>
+        <h1 style="text-align:center;">🎆 THE END 🎆</h1>
+        <h3 style="text-align:center;">I love you, always 💖</h3>
         """,
         unsafe_allow_html=True
     )
@@ -123,4 +106,3 @@ st.markdown(
     "<p style='text-align:center; color:grey;'>Made with ❤️</p>",
     unsafe_allow_html=True
 )
-
