@@ -9,18 +9,18 @@ st.set_page_config(
 )
 
 # ---------------- PASSWORD LOCK ----------------
-PASSWORD = "mylove123"  # 🔒 change if you want
+PASSWORD = "mylove123"   # 🔒 change this if you want
 
-if "auth" not in st.session_state:
-    st.session_state.auth = False
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
 
-if not st.session_state.auth:
+if not st.session_state.authenticated:
     st.markdown("## 🔒 Enter Password")
     pwd = st.text_input("Password", type="password")
 
     if st.button("Unlock ❤️"):
         if pwd == PASSWORD:
-            st.session_state.auth = True
+            st.session_state.authenticated = True
             st.success("Unlocked 💖")
             time.sleep(1)
             st.rerun()
@@ -28,68 +28,67 @@ if not st.session_state.auth:
             st.error("Wrong password 😢")
     st.stop()
 
-# ---------------- SLIDES TEXT ----------------
+# ---------------- SLIDES CONTENT (7 SLIDES) ----------------
 slides = [
-    "💖 Haliuuu my baby onyett sayang",
-    "This is something special, made only for you.",
-    "No matter what happens, my heart always chooses you.",
-    "Thank you for being my happiness.",
-    "I love you, always 💕"
+    {
+        "text": "💖 Haliuuu my baby onyett sayang",
+        "symbol": "❤️",
+        "color": "#ff4d6d"
+    },
+    {
+        "text": "You are the first thought in my morning and the last in my night.",
+        "symbol": "💞",
+        "color": "#ff85a1"
+    },
+    {
+        "text": "No matter how far life takes us, my heart always knows where to return.",
+        "symbol": "🤍",
+        "color": "#f1f1f1"
+    },
+    {
+        "text": "Holding your hand feels like holding the whole world.",
+        "symbol": "🫶",
+        "color": "#ff6f91"
+    },
+    {
+        "text": "You make ordinary days feel extraordinary.",
+        "symbol": "💗",
+        "color": "#ff9aa2"
+    },
+    {
+        "text": "If love had a shape, it would look like us.",
+        "symbol": "🤝❤️",
+        "color": "#ffb703"
+    },
+    {
+        "text": "I love you — quietly, deeply, endlessly.",
+        "symbol": "💓",
+        "color": "#e63946"
+    }
 ]
 
+# ---------------- STATE ----------------
 if "slide" not in st.session_state:
     st.session_state.slide = 0
 
-# ---------------- CSS STYLES ----------------
+# ---------------- CSS ----------------
 st.markdown(
     """
     <style>
-    .heart {
-        width: 280px;
-        height: 280px;
-        background-image: url("IMG_20230728_120619_627.jpg");
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        margin: 40px auto 20px auto;
-        transform: rotate(-45deg);
-        animation: pulse 1.8s infinite;
-        box-shadow: 0 0 30px rgba(255, 105, 180, 0.9);
-    }
-
-    .heart::before,
-    .heart::after {
-        content: "";
-        width: 280px;
-        height: 280px;
-        background-image: url("IMG_20230728_120619_627.jpg");
-        background-size: cover;
-        background-position: center;
-        border-radius: 50%;
-        position: absolute;
-    }
-
-    .heart::before {
-        top: -140px;
-        left: 0;
-    }
-
-    .heart::after {
-        left: 140px;
-        top: 0;
-    }
-
-    @keyframes pulse {
-        0% { transform: rotate(-45deg) scale(1); }
-        50% { transform: rotate(-45deg) scale(1.06); }
-        100% { transform: rotate(-45deg) scale(1); }
-    }
-
-    .text-box {
+    .slide-box {
         text-align: center;
-        font-size: 26px;
-        margin-top: 20px;
+        padding: 60px 30px;
         animation: fadeIn 0.6s ease-in;
+    }
+
+    .slide-text {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .love-symbol {
+        font-size: 42px;
+        margin-top: 10px;
     }
 
     @keyframes fadeIn {
@@ -103,23 +102,25 @@ st.markdown(
 
 # ---------------- DISPLAY ----------------
 if st.session_state.slide < len(slides):
+    slide = slides[st.session_state.slide]
 
-    # ❤️ HEART
-    st.markdown("<div class='heart'></div>", unsafe_allow_html=True)
-
-    # 💬 STATIC TEXT (NO MOVEMENT)
     st.markdown(
-        f"<div class='text-box'>{slides[st.session_state.slide]}</div>",
+        f"""
+        <div class="slide-box">
+            <div class="slide-text">{slide['text']}</div>
+            <div class="love-symbol" style="color:{slide['color']};">
+                {slide['symbol']}
+            </div>
+        </div>
+        """,
         unsafe_allow_html=True
     )
-
 else:
-    # 🎆 ENDING
     st.balloons()
     st.markdown(
         """
-        <h1 style="text-align:center;">🎆 THE END 🎆</h1>
-        <h3 style="text-align:center;">Thank you for being my everything 💖</h3>
+        <h1 style="text-align:center;">💖 THE END 💖</h1>
+        <h3 style="text-align:center;">Thank you for being my love.</h3>
         """,
         unsafe_allow_html=True
     )
